@@ -1,0 +1,159 @@
+.agentHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.agentInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.agentName {
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.agentName:hover {
+  color: var(--color-primary);
+}
+
+.agentRole {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-3) 0;
+}
+
+.budgetRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  margin-bottom: var(--space-2);
+}
+
+.muted {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+.cardTitle {
+  margin: var(--space-2) 0;
+}
+
+.cardDesc {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.pending {
+  border-color: var(--color-warning);
+  background: rgba(251, 191, 36, 0.06);
+}
+
+.stats {
+  display: flex;
+  gap: var(--space-5);
+  margin: var(--space-3) 0;
+}
+
+.statLabel {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.recBox {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.recBox p {
+  font-size: 0.9375rem;
+  margin-top: var(--space-2);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.btn {
+  flex: 1;
+  min-height: 44px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 150ms ease-out;
+}
+
+.btnPrimary {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.btnDanger {
+  background: rgba(248, 113, 113, 0.12);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.btnGhost {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.orgCard {
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.compact {
+  padding: var(--space-3);
+}

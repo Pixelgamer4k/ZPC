@@ -1,0 +1,33 @@
+---
+description: Deployment, CI/CD, and infrastructure standards
+globs: Dockerfile*, .github/**/*.yml, docker-compose*, vite.config.*
+alwaysApply: true
+---
+
+# Docker
+- Multi-stage builds: builder → production (smaller final image)
+- Use Alpine or Distroless base images
+- .dockerignore to exclude node_modules, .git, env files
+- Health check endpoint on all services
+
+# CI/CD Pipeline
+- Install → Lint → Type Check → Test → Build → Deploy
+- Run tests in parallel where possible
+- Cache node_modules between runs
+- Deploy only if ALL checks pass
+
+# Environment Strategy
+- dev: local with hot reload
+- staging: production-like, used for QA
+- prod: optimized, monitored, auto-scaled
+
+# Environment Variables
+- Validate required env vars at startup (fail fast if missing)
+- Separate config per environment
+- NO defaults for secrets in code
+
+# Monitoring
+- Health check endpoint: /health (200 = healthy)
+- Structured logging with correlation IDs
+- Error tracking integration (Sentry)
+- Basic metrics: request count, latency, error rate

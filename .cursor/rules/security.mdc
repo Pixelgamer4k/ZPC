@@ -1,0 +1,37 @@
+---
+description: Security best practices and vulnerability prevention
+globs: **/*.{ts,tsx,js,jsx}
+alwaysApply: true
+---
+
+# Authentication
+- NEVER store tokens in localStorage (XSS vulnerable)
+- Use httpOnly, secure, SameSite cookies for sessions
+- Implement proper token refresh logic
+- Validate ALL inputs with Zod on both client AND server
+
+# XSS Prevention
+- Sanitize user-generated HTML (DOMPurify)
+- Use dangerouslySetInnerHTML ONLY when necessary, always sanitize
+- href values from users must be validated (javascript: protocol attack)
+
+# CSRF Protection
+- Use CSRF tokens for state-changing operations
+- Validate Origin/Referer headers
+
+# Dependency Security
+- NO deprecated or unmaintained packages
+- Run npm audit regularly, fix high/critical vulnerabilities
+- Pin exact versions in package.json for security patches
+
+# Secrets Management
+- NO secrets in code, ever
+- Use environment variables, validate at startup
+- .env.example committed, .env in .gitignore
+- Different secrets for dev/staging/prod
+
+# API Security
+- Rate limiting on all endpoints
+- Input validation on every request
+- SQL injection prevention (parameterized queries only)
+- Error messages must not leak stack traces or DB structure in production

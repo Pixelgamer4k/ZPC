@@ -1,0 +1,37 @@
+---
+description: Mandatory development workflow and self-check
+globs: **
+alwaysApply: true
+---
+
+# Mandatory Self-Correction Loop
+After EVERY code change, you MUST:
+
+1. **Type Check**: Run `npm run typecheck` or `tsc --noEmit`
+   → Fix ALL errors before proceeding
+   
+2. **Lint**: Run `npm run lint`
+   → Fix ALL warnings and errors
+   
+3. **Test**: Run `npm run test` (or affected tests only)
+   → Fix failing tests, update snapshots if intentional
+   
+4. **Build**: Run `npm run build`
+   → Verify production build succeeds
+   
+5. **Self-Review**: Before finishing, ask:
+   - Did I handle error states?
+   - Did I handle loading states?
+   - Is this responsive (mobile + desktop)?
+   - Are there any accessibility issues?
+   - Did I introduce any security vulnerabilities?
+
+# Incremental Development
+- ONE feature at a time, fully complete before moving on
+- NO partially implemented features committed
+- Each feature must include: UI + logic + tests + error handling
+
+# Git Hygiene
+- Atomic commits: One logical change per commit
+- Conventional commit messages: feat:, fix:, refactor:, test:, docs:
+- NO commit without running the self-correction loop first

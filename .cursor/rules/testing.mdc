@@ -1,0 +1,28 @@
+---
+description: Testing standards and coverage requirements
+globs: **/*.{test,spec}.{ts,tsx}
+alwaysApply: true
+---
+
+# Testing Pyramid
+- Unit tests: 70% — pure functions, utilities, hooks
+- Integration tests: 20% — component + API interaction
+- E2E tests: 10% — critical user flows only
+
+# Rules
+- Every bug fix gets a regression test FIRST
+- Test behavior, not implementation (black box testing)
+- Use React Testing Library — query by role, label, text (not test-id)
+- Mock external services, test error states and loading states
+- Coverage threshold: 80% branches, 70% lines minimum
+
+# Test Structure (AAA Pattern)
+- Arrange: Set up data and mocks
+- Act: Execute the function/interaction
+- Assert: Check the expected outcome
+
+# E2E (Playwright/Cypress)
+- Test happy path + 2-3 error paths per flow
+- Use data-testid ONLY for E2E selectors
+- Run against production-like data in CI
+- Screenshots on failure for debugging

@@ -1,0 +1,35 @@
+---
+description: Accessibility requirements and WCAG compliance
+globs: **/*.{tsx,jsx,vue,svelte}
+alwaysApply: true
+---
+
+# WCAG 2.1 AA Compliance (Minimum)
+- Color contrast: 4.5:1 for normal text, 3:1 for large text
+- NEVER use color alone to convey information (add icons/text)
+- All interactive elements keyboard accessible (Tab order)
+- Focus indicators visible on all focusable elements
+
+# Semantic HTML
+- Use correct landmark elements: <header>, <nav>, <main>, <footer>
+- Headings in proper order: h1 → h2 → h3 (no skipping)
+- Buttons for actions, links for navigation (don't mix them up)
+- Form inputs always have associated <label>
+
+# ARIA
+- Use semantic HTML first, ARIA only when HTML falls short
+- aria-label for icon-only buttons
+- aria-expanded for collapsible content
+- aria-live for dynamic status messages
+- role="alert" for error messages
+
+# Screen Readers
+- Alt text for all informative images (empty alt for decorative)
+- Hidden text for visual-only cues (.sr-only class)
+- Status updates announced (form submission, errors)
+- Skip navigation link for keyboard users
+
+# Testing
+- Run axe DevTools on every page
+- Tab through entire flow with keyboard only
+- Test with actual screen reader (NVDA/VoiceOver) for critical flows

@@ -1,0 +1,34 @@
+---
+description: Backend architecture and API design patterns
+globs: **/api/**/*.{ts,js}, **/server/**/*.{ts,js}
+alwaysApply: true
+---
+
+# API Design
+- RESTful conventions: GET /resources, POST /resources, GET /resources/:id
+- Status codes: 200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 404 Not Found, 500 Server Error
+- Consistent response envelope: { success: boolean, data?: T, error?: string }
+- Pagination: cursor-based for infinite scroll, offset for tables
+- Filtering, sorting, searching via query params
+
+# Database
+- Use ORM (Drizzle/Prisma) or query builder — NO raw SQL strings
+- Migrations: version-controlled, reversible, tested
+- Index foreign keys and frequently queried columns
+- N+1 query prevention: eager load related data
+
+# Authentication & Authorization
+- JWT access tokens (short-lived: 15min) + refresh tokens (long-lived: 7days)
+- RBAC: Role-based access control middleware
+- Middleware stack: Auth → Validation → Rate Limit → Handler
+
+# Error Handling
+- Centralized error handler middleware
+- Operational errors (400s) vs Programmer errors (500s)
+- Structured logging: timestamp, requestId, userId, error stack
+- NEVER expose internal error details to client in production
+
+# Validation
+- Zod schemas for ALL inputs (path params, query, body)
+- Validate at the boundary (controller level), not in business logic
+- Custom error messages for user-facing validation

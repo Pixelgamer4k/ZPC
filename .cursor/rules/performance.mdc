@@ -1,0 +1,38 @@
+---
+description: Performance standards and optimization rules
+globs: **/*.{ts,tsx,js,jsx}
+alwaysApply: true
+---
+
+# Core Web Vitals Targets
+- LCP (Largest Contentful Paint): < 2.5s
+- FID/INP (Interaction to Next Paint): < 200ms
+- CLS (Cumulative Layout Shift): < 0.1
+
+# Loading Performance
+- Lazy load routes: React.lazy() + Suspense
+- Lazy load below-fold images: loading="lazy" or Intersection Observer
+- Critical CSS inlined, non-critical loaded async
+- Fonts: Preload critical fonts, use font-display: swap
+
+# Bundle Size
+- Import only used functions from libraries (tree-shaking)
+- NO entire lodash import — use lodash-es or specific functions
+- Analyze bundle with @next/bundle-analyzer or vite-bundle-visualizer
+
+# Runtime Performance
+- Memoize expensive computations: useMemo for calculations
+- Memoize callbacks passed to children: useCallback
+- Virtualize long lists: react-window or @tanstack/react-virtual
+- Debounce search inputs: 300ms delay
+- Throttle scroll/resize handlers: 16ms (60fps)
+
+# Image Optimization
+- Use WebP/AVIF formats with JPEG fallbacks
+- Proper sizing: srcset for responsive images
+- Placeholder: blur-up or dominant color while loading
+
+# React Specific
+- NO anonymous functions in JSX props (creates new reference every render)
+- Split context providers — don't put everything in one context
+- Use production builds for profiling: React Profiler to find issues

@@ -1,0 +1,39 @@
+---
+description: Clean Architecture and project structure patterns
+globs: **/*.{ts,tsx,js,jsx}
+alwaysApply: true
+---
+
+# Layered Architecture (Frontend)
+/src
+  /app          → Pages, routing, layout shells (thin)
+  /features     → Feature modules with own components, hooks, API calls
+  /components   → Shared UI primitives (Button, Input, Modal)
+  /hooks        → Reusable custom hooks
+  /lib          → Utilities, helpers, formatters
+  /types        → Shared TypeScript types
+  /services     → API clients, external integrations
+
+# Rules Per Layer
+- App layer: NO business logic, just composition
+- Features: Self-contained, can be copied/deleted as a unit
+- Components: Pure presentational, props-driven, no side effects
+- Hooks: Single responsibility, composable
+- Services: All API calls centralized, with error handling
+
+# Data Flow
+- Use React Query/SWR for server state
+- Use Zustand/Jotai for client state only when necessary
+- NEVER put fetch logic inside components — use hooks or services
+- Form state: React Hook Form + Zod validation
+
+# API Design
+- RESTful naming: /resources/:id/actions
+- Return typed responses using Zod schemas
+- Centralized error handling with retry logic
+- Loading and error states are FIRST-CLASS UI concerns
+
+# Module Boundaries
+- Features can import from components, hooks, lib, types
+- Features CANNOT import from other features (prevents spaghetti)
+- Shared code goes to /components, /hooks, or /lib

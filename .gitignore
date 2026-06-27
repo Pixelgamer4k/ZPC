@@ -4,6 +4,9 @@ node_modules/
 dist/
 web-build/
 
+# Legacy mobile (removed — use web/)
+mobile/
+
 # Native
 android/
 ios/
