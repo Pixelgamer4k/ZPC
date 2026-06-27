@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.expo/
+dist/
+web-build/
+
+# Native
+android/
+ios/
+*.jks
+*.keystore
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Build artifacts
+*.apk
+*.aab
+*.ipa
+
+# Logs
+npm-debug.log*
+*.log
+
+# TypeScript
+*.tsbuildinfo
+
+# PDF (large spec doc — keep local)
+zpc_implementation_plan.pdf
